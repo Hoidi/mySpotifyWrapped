@@ -22,6 +22,13 @@ func main() {
 	setup()
 
 	fmt.Print(totalTimeListened()," hours of total listening time.\n")
+
+	popArtist, popArtistLitens := mostPopularArtist(true)
+	fmt.Print(popArtist," is the artist you've listened to the most times. Total listening times is ", popArtistLitens,".\n")
+	popArtist, popArtistLitens = mostPopularArtist(false)
+	fmt.Print(popArtist," is the artist you've listened to the most time. Total listening time is ", popArtistLitens," hours.\n")
+}
+
 func setup() {
 	content0, _ := ioutil.ReadFile("MyData/StreamingHistory0.json")
 	content1, _ := ioutil.ReadFile("MyData/StreamingHistory0.json")
@@ -73,6 +80,37 @@ func totalTimeListened() float64 {
 	}
 	return float64(((time / 1000)/60)/60)
 }
+
+func mostPopularArtist(unique bool) (string,int) {
+	mostPop := ""
+	listens := 0
+	for artist,songList := range artistsSongs {
+		artistsListens := 0
+		for _, song := range songList {
+			if unique {
+				artistsListens += songUniqueListens[song]
+			} else {
+				artistsListens += songTimeListens[song]
+			}
+
+		}
+		if artistsListens > listens {
+			listens = artistsListens
+			mostPop = artist
+		}
+	}
+
+	if unique {
+		return mostPop, listens
+	} else {
+		return mostPop, ((listens/1000)/60)/60 // return time in hours
+	}
+}
+
+
+
+
+
 func unique(intSlice []string) []string {
 	keys := make(map[string]bool)
 	var list []string
