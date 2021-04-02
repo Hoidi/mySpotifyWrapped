@@ -65,6 +65,14 @@ func createSongTimeListens() {
 		songTimeListens[song.Track] = songTimeListens[song.Track] + song.Time
 	}
 }
+
+func totalTimeListened() float64 {
+	time := 0
+	for _,song := range songs {
+		time+= song.Time
+	}
+	return float64(((time / 1000)/60)/60)
+}
 func unique(intSlice []string) []string {
 	keys := make(map[string]bool)
 	var list []string
