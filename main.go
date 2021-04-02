@@ -27,6 +27,11 @@ func main() {
 	fmt.Print(popArtist," is the artist you've listened to the most times. Total listening times is ", popArtistLitens,".\n")
 	popArtist, popArtistLitens = mostPopularArtist(false)
 	fmt.Print(popArtist," is the artist you've listened to the most time. Total listening time is ", popArtistLitens," hours.\n")
+
+	popTrack, popTrackLitens := mostPopularTrack(true)
+	fmt.Print(popTrack," is the track you've listened to the most times. Total listening times is ", popTrackLitens,".\n")
+	popTrack, popTrackLitens = mostPopularTrack(false)
+	fmt.Print(popTrack," is the track you've listened to the most time. Total listening time is ", popTrackLitens," hours.\n")
 }
 
 func setup() {
@@ -107,7 +112,33 @@ func mostPopularArtist(unique bool) (string,int) {
 	}
 }
 
+func mostPopularTrack(unique bool) (string,int) {
+	mostPop := ""
+	listening := 0
 
+	if unique {
+		for key,value := range songUniqueListens {
+			if value > listening {
+				listening = value
+				mostPop = key
+			}
+		}
+	} else {
+		for key,value := range songTimeListens {
+			if value > listening {
+				listening = value
+				mostPop = key
+			}
+		}
+	}
+
+
+	if unique {
+		return mostPop, listening
+	} else {
+		return mostPop, ((listening/1000)/60)/60 // return time in hours
+	}
+}
 
 
 
