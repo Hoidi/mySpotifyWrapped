@@ -8,6 +8,18 @@ func TotalTimeListened() float64 {
 	return float64(((time / 1000)/60)/60)
 }
 
+func NumberOfUnique() (int, int) {
+	var artists []string
+	var tracks []string
+
+	for _, song := range songs {
+		artists = append(artists, song.Artist)
+		tracks = append(tracks, song.Track)
+	}
+
+	return len(Unique(artists)), len(Unique(tracks))
+}
+
 func MostPopularArtist(unique bool) (string,int) {
 	var mostPop string
 	var listens int
@@ -92,7 +104,6 @@ func HighestSteakTrack(unique bool) (string, int) {
 		return highestStreakTrack, (highestStreakNum/1000)/60 // return time in minutes
 	}
 }
-
 
 // TODO: Lots of code duplication in HighestSteakArtist and HighestSteakTrack. Merge them somehow.
 func HighestSteakArtist(unique bool) (string, int) {
