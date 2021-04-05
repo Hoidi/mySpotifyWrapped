@@ -136,3 +136,22 @@ func HighestSteakArtist(unique bool) (string, int) {
 		return highestStreakArtist, (highestStreakNum/1000)/60 // return time in minutes
 	}
 }
+
+func TopTracks(unique bool) PairList {
+	var tracks = make(map[string]int)
+	for _, song := range songs {
+		if unique {
+			tracks[song.Track] += 1
+		} else {
+			tracks[song.Track] += song.Time
+		}
+	}
+
+	if !unique {
+		for key,value := range tracks {
+			tracks[key] = (value/1000)/60 // convert to minutes
+		}
+	}
+
+	return SortMapByValue(tracks)
+}
