@@ -61,3 +61,67 @@ func MostPopularTrack(unique bool) (string,int) {
 		return mostPop, ((listening/1000)/60)/60 // return time in hours
 	}
 }
+
+func HighestSteakTrack(unique bool) (string, int) {
+	var highestStreakNum int
+	var highestStreakTrack string
+	var currentStreakNum int
+	var currentStreakTrack string
+	for _,song := range songs {
+		if song.Track == currentStreakTrack {
+			if unique {
+				currentStreakNum += 1
+			} else {
+				currentStreakNum += song.Time
+			}
+		} else {
+			currentStreakNum = 0
+		}
+
+		if currentStreakNum > highestStreakNum {
+			highestStreakNum = currentStreakNum
+			highestStreakTrack = currentStreakTrack
+		}
+
+		currentStreakTrack = song.Track
+	}
+
+	if unique {
+		return highestStreakTrack, highestStreakNum
+	} else {
+		return highestStreakTrack, (highestStreakNum/1000)/60 // return time in minutes
+	}
+}
+
+
+// TODO: Lots of code duplication in HighestSteakArtist and HighestSteakTrack. Merge them somehow.
+func HighestSteakArtist(unique bool) (string, int) {
+	var highestStreakNum int
+	var highestStreakArtist string
+	var currentStreakNum int
+	var currentStreakArtist string
+	for _,song := range songs {
+		if song.Artist == currentStreakArtist {
+			if unique {
+				currentStreakNum += 1
+			} else {
+				currentStreakNum += song.Time
+			}
+		} else {
+			currentStreakNum = 0
+		}
+
+		if currentStreakNum > highestStreakNum {
+			highestStreakNum = currentStreakNum
+			highestStreakArtist = currentStreakArtist
+		}
+
+		currentStreakArtist = song.Artist
+	}
+
+	if unique {
+		return highestStreakArtist, highestStreakNum
+	} else {
+		return highestStreakArtist, (highestStreakNum/1000)/60 // return time in minutes
+	}
+}

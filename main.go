@@ -30,4 +30,14 @@ func main() {
 	fmt.Print(popTrack," is the track you've listened to the most times. Total listening times is ", popTrackListens,".\n")
 	popTrack, popTrackListens = MostPopularTrack(false)
 	fmt.Print(popTrack," is the track you've listened to the most time. Total listening time is ", popTrackListens," hours.\n")
+
+	streakArtist, streakNum := HighestSteakTrack(true)
+	fmt.Print(streakArtist, " is the song with the highest streak in a row. The streak was ", streakNum,"\n")
+	streakTrackTime, streakNumTime := HighestSteakTrack(false)
+	fmt.Print(streakTrackTime, " is the song with the longest streak in a row. The streak time was ", streakNumTime, " minutes.\n")
+
+	streakArtist, streakArtistNum := HighestSteakArtist(true)
+	fmt.Print(streakArtist, " is the song with the highest streak in a row. The streak was ", streakArtistNum,"\n")
+	streakArtistTime, streakArtistNumTime := HighestSteakArtist(false)
+	fmt.Print(streakArtistTime, " is the song with the longest streak in a row. The streak time was ", streakArtistNumTime, " minutes.\n")
 }
