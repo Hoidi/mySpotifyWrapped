@@ -40,9 +40,9 @@ func main() {
 	fmt.Print(streakTrackTime, " is the song with the longest streak in a row. The streak time was ", streakNumTime, " minutes.\n\n")
 
 	streakArtist, streakArtistNum := HighestSteakArtist(true)
-	fmt.Print(streakArtist, " is the song with the highest streak in a row. The streak was ", streakArtistNum,"\n")
+	fmt.Print(streakArtist, " is the artist with the highest streak in a row. The streak was ", streakArtistNum,"\n")
 	streakArtistTime, streakArtistNumTime := HighestSteakArtist(false)
-	fmt.Print(streakArtistTime, " is the song with the longest streak in a row. The streak time was ", streakArtistNumTime, " minutes.\n\n")
+	fmt.Print(streakArtistTime, " is the artist with the longest streak in a row. The streak time was ", streakArtistNumTime, " minutes.\n\n")
 
 	printTopNTracks(10,TopTracks(false))
 }
