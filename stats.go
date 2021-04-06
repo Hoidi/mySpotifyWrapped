@@ -155,3 +155,23 @@ func TopTracks(unique bool) PairList {
 
 	return SortMapByValue(tracks)
 }
+
+// TODO: Basically same code as TopTracks. Find a nice way to marge them.
+func TopArtist(unique bool) PairList {
+	var artists = make(map[string]int)
+	for _, song := range songs {
+		if unique {
+			artists[song.Artist] += 1
+		} else {
+			artists[song.Artist] += song.Time
+		}
+	}
+
+	if !unique {
+		for key,value := range artists {
+			artists[key] = (value/1000)/60 // convert to minutes
+		}
+	}
+
+	return SortMapByValue(artists)
+}

@@ -44,13 +44,21 @@ func main() {
 	streakArtistTime, streakArtistNumTime := HighestSteakArtist(false)
 	fmt.Print(streakArtistTime, " is the artist with the longest streak in a row. The streak time was ", streakArtistNumTime, " minutes.\n\n")
 
-	printTopNTracks(10,TopTracks(false))
+	printTopN(10,"tracks",false)
+
+	printTopN(10,"artists",false)
 }
 
-
-func printTopNTracks(n int, topTracks PairList) {
-	fmt.Print("Your top ", n, " tracks.\n")
-	for i, track := range topTracks[:n] {
-		fmt.Print(i+1,". ", track.Key, ": ", track.Value, " times.\n")
+func printTopN(n int, a string, unique bool) {
+	var topList PairList
+	if a == "artists" {
+		topList = TopArtist(unique)
+	} else {
+		topList = TopTracks(unique)
 	}
+	fmt.Print("Your top ", n, " ", a,".\n")
+	for i, item := range topList[:n] {
+		fmt.Print(i+1,". ", item.Key, ": ", item.Value, " minutes. (", item.Value/60," hours)\n")
+	}
+	fmt.Print("\n")
 }
