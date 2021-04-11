@@ -1,29 +1,29 @@
 general:
 	go build main.go helper.go setup.go stats.go
 	./main general
-	rm -f main helper
+	rm main
 
 artistUnique:
 	go build main.go helper.go setup.go stats.go
 	./main artist unique
-	rm -f main helper
+	rm main
 
 artistTime:
 	go build main.go helper.go setup.go stats.go
 	./main artist time
-	rm -f main helper
+	rm main
 
 trackUnique:
 	go build main.go helper.go setup.go stats.go
 	./main track unique
-	rm -f main helper
+	rm main
 
 trackTime:
 	go build main.go helper.go setup.go stats.go
 	./main track time
-	rm -f main helper
+	rm main
 
 all:
 	go build main.go helper.go setup.go stats.go
 	./main all
-	rm -f main helper
+	rm main
