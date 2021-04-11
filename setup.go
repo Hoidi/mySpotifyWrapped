@@ -5,19 +5,16 @@ import (
 	"io/ioutil"
 )
 
-// hello
 func Setup() {
 	content0, _ := ioutil.ReadFile("MyData/StreamingHistory0.json")
-	content1, _ := ioutil.ReadFile("MyData/StreamingHistory0.json")
+	content1, _ := ioutil.ReadFile("MyData/StreamingHistory1.json")
 
 
 	// add the two jsons together
-	songJson0 := content0
-	songJson1 := content1
 	var songs0 []SongPlayJSON
 	var songs1 []SongPlayJSON
-	_ = json.Unmarshal(songJson0, &songs0)
-	_ = json.Unmarshal(songJson1, &songs1)
+	_ = json.Unmarshal(content0, &songs0)
+	_ = json.Unmarshal(content1, &songs1)
 	songs = append(songs0, songs1...)
 
 	artistsSongs = createArtistsSongs()
