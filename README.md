@@ -10,10 +10,9 @@ You can run the program using the `Makefile`
 
 ### Possible make options
 
-`general` 		- Some general information like total listening time and number of unique artists
-`artistUnique` 	- Prints statistics like most popular artist in number of songs listened
-`artistTime` 	- Prints statistics like most popular artist in total time listened
-`trackUnique` 	- Prints statistics like most popular song in number of unique listening occasions
-`trackTime` 	- Prints statistics like most popular song in total time listened
-`all` 			- Prints all the possible information
-
+`general` 		- Some general information like total listening time and number of unique artists  
+`artistUnique` 	- Prints statistics like most popular artist in number of songs listened  
+`artistTime` 	- Prints statistics like most popular artist in total time listened  
+`trackUnique` 	- Prints statistics like most popular song in number of unique listening occasions  
+`trackTime` 	- Prints statistics like most popular song in total time listened  
+`all` 			- Prints all the possible information  
