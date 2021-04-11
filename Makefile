@@ -22,3 +22,8 @@ trackTime:
 	go build main.go helper.go setup.go stats.go
 	./main track time
 	rm -f main helper
+
+all:
+	go build main.go helper.go setup.go stats.go
+	./main all
+	rm -f main helper

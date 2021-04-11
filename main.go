@@ -22,7 +22,14 @@ func main() {
 
 	args := os.Args
 
+	// TODO: This is pretty ugly code
 	switch args[1]{
+	case "all":
+		printGeneral()
+		printArtistUnique()
+		printArtistTime()
+		printTrackUnique()
+		printTrackTime()
 	case "general":
 		printGeneral()
 	case "artist":
@@ -38,7 +45,7 @@ func main() {
 			printTrackTime()
 		}
 	default:
-		fmt.Print("Oh no")
+		fmt.Print("Something went wrong")
 	}
 
 }
@@ -119,4 +126,5 @@ func printHours(unique bool) {
 	for i,j := range hours {
 		fmt.Print(i," ",j,"\n")
 	}
+	fmt.Print("\n")
 }
