@@ -1,5 +1,9 @@
 package main
 
+import (
+	"strconv"
+)
+
 func TotalTimeListened() float64 {
 	var time int
 	for _,song := range songs {
@@ -174,4 +178,20 @@ func TopArtist(unique bool) PairList {
 	}
 
 	return SortMapByValue(artists)
+}
+
+func Hour(unique bool) [24]int {
+	var hours [24]int
+
+	for _,song := range songs {
+		// "2018-10-20 09:30"
+		i,_ := strconv.Atoi(song.When[11:13])
+		if unique {
+			hours[i] += 1
+		} else {
+			hours[i] += song.Time
+		}
+	}
+
+	return hours
 }
