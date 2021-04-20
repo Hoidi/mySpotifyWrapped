@@ -6,8 +6,8 @@ import (
 )
 
 func Setup() {
-	content0, _ := ioutil.ReadFile("MyData/StreamingHistory0.json")
-	content1, _ := ioutil.ReadFile("MyData/StreamingHistory1.json")
+	content0, _ := ioutil.ReadFile("../MyData/StreamingHistory0.json")
+	content1, _ := ioutil.ReadFile("../MyData/StreamingHistory1.json")
 
 
 	// add the two jsons together

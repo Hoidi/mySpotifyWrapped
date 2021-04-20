@@ -47,7 +47,6 @@ func main() {
 	default:
 		fmt.Print("Something went wrong")
 	}
-
 }
 
 func printGeneral() {
