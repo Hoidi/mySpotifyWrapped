@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"os"
 )
 
 type SongPlayJSON struct {
@@ -18,6 +17,8 @@ var songUniqueListens map[string]int	// all songs and how many times they've bee
 var songTimeListens map[string]int		// all songs and how many milli seconds they've been listened to
 
 func main() {
+	InitMyServer()
+	/*
 	Setup()
 
 	args := os.Args
@@ -47,6 +48,7 @@ func main() {
 	default:
 		fmt.Print("Something went wrong")
 	}
+	 */
 }
 
 func printGeneral() {
