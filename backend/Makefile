@@ -31,3 +31,4 @@ all:
 http:
 	go build main.go backend.go helper.go setup.go stats.go
 	./main
+	rm main
